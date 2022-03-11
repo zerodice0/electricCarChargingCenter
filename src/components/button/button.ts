@@ -1,7 +1,7 @@
 const appendButton = (
   {target, title, clickEventCallback}: 
   {
-    target: Element | ShadowRoot,
+    target: Element | ShadowRoot | undefined,
     title: string,
     clickEventCallback: Function | undefined,
   }) => {
@@ -14,10 +14,11 @@ const appendButton = (
         () => clickEventCallback(),
       );
 
-      target.appendChild(button);
+      target?.appendChild(button);
+      return button;
     }
 
-    render();
+    return render();
   }
 
 export default appendButton;
