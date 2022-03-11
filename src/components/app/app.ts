@@ -1,6 +1,12 @@
 import appendButton from "../button/button";
 import appendHeadline from "../headline/headline";
 
+declare global {
+  interface Window {
+    kakao: any
+  }
+}
+
 const App = (target: Element | ShadowRoot) => {
   const shadowRoot = (target instanceof ShadowRoot) ? target
     : target?.shadowRoot ?? target?.attachShadow({mode: 'open'});
@@ -40,7 +46,7 @@ const App = (target: Element | ShadowRoot) => {
         });
       }
     });
-
+    
     shadowRoot?.replaceChildren(container);
   };
 
