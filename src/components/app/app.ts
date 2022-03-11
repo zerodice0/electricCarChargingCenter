@@ -1,4 +1,5 @@
 import appendButton from "../button/button";
+import appendHeadline from "../headline/headline";
 
 const App = (target: Element | ShadowRoot) => {
   const shadowRoot = (target instanceof ShadowRoot) ? target
@@ -22,10 +23,12 @@ const App = (target: Element | ShadowRoot) => {
   
   const render = () => {
     const container = document.createElement('div');
-    const title = document.createElement('h1');
     
-    container.className = 'container';
-    container.appendChild(title);
+    appendHeadline({
+      target: container, 
+      text: status.titleString,
+      level: 1,
+    });
     
     appendButton({
       target: container,
@@ -37,8 +40,6 @@ const App = (target: Element | ShadowRoot) => {
         });
       }
     });
-  
-    title.innerText = status.titleString;
 
     shadowRoot?.replaceChildren(container);
   };
