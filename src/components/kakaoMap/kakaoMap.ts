@@ -9,10 +9,10 @@ const appendKakaoMap = (target: Element) => {
     longitude: 126.9783881,
   };
 
-  const setState = (_state: KakaoMapStatus) => {
-    status = {...status};
-    render();
-  };
+  // const setState = (_state: KakaoMapStatus) => {
+  //   status = {...status};
+  //   render();
+  // };
 
   const render = () => {
     const map = new window.kakao.maps.Map(target, {
